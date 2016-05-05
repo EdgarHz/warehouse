@@ -1,20 +1,19 @@
 #!/bin/sh
-
-source "$ZyWarehouseDir/bin/zyevnDefine.sh"
+WarehouseBinDir=`dirname $0`;
+source "$WarehouseBinDir/zWarehouseCommon.sh"
 
 if [ "$#" -eq 0 ]; then   # 脚本需要至少一个命令行参数.
   echo "Usage $0 -[options k,nc]"
   exit -1
 fi
 
-# 定义一个方法
 foreachd(){
     local pathdir=$1
     local Files=`ls $pathdir`;
     for file in $Files;
     do
         if [ -d "$file" ]; then
-            cd "$pathdir/$file"
+            cd $pathdir/$file 
             if [[ -d ".git" ]]; then
                 local GitRemote=$(gitUrlOfThisDir)
                 echo "----------at: $file find:$GitRemote"
@@ -29,7 +28,8 @@ foreachd(){
                 # writeInfoToList $GitRemote ""
                 # copyAndUpdateGit  `pwd` $GitRemote
             elif [ "${file##*.}" != 'xcworkspace' ] && [ "${file##*.}" != 'xcodeproj' ] && [ "${file##*.}" != 'lproj' ]; then
-                foreachd  `pwd`;
+                # echo "foreachd $pathdir/$file"
+                foreachd  $pathdir/$file
             fi
             cd "$pathdir"
         fi

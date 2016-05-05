@@ -1,21 +1,20 @@
-BaseDir=$ZyWarehouseDir
-Repo_Root="repos"
-Register_Txt="RepoList.txt"
+#!/bin/sh
+
+WarehouseBaseDir=`dirname $0`/..
+RepoRootDirName="repos"
+RegisterTxtFileName="RepoList.txt"
 
 #创建相关目录
 function checkDir(){
-	local pwdPath=`pwd`
-	cd $BaseDir
-	if [ ! -d $Repo_Root ]; then
-	  mkdir $Repo_Root
-	  echo "$Repo_Root/" | cat >> .gitignore
+	cd $WarehouseBaseDir
+	if [ ! -d $RepoRootDirName ]; then
+	  mkdir $RepoRootDirName
+	  echo "$RepoRootDirName/" | cat >> .gitignore
 	fi
 
-	if [ ! -f $Register_Txt ]; then
-	  touch $Register_Txt
+	if [ ! -f $RegisterTxtFileName ]; then
+	  touch $RegisterTxtFileName
 	fi
-	cd $pwdPath
-
 }
 
 #通过截断得到当前文件夹中的git的url地址
@@ -45,9 +44,9 @@ function writeInfoToList(){
 	local Url=$1;
 	local Keyword=$2;
 	local LineContent="$Url \tkeywords: $Keyword"
-	echo $LineContent | cat >> $BaseDir/$Register_Txt
-	sort $BaseDir/$Register_Txt | uniq | cat > $BaseDir/temp.txt
-	mv $BaseDir/temp.txt $BaseDir/$Register_Txt
+	echo $LineContent | cat >> $WarehouseBaseDir/$RegisterTxtFileName
+	sort $WarehouseBaseDir/$RegisterTxtFileName | uniq | cat > $WarehouseBaseDir/temp.txt
+	mv $WarehouseBaseDir/temp.txt $WarehouseBaseDir/$RegisterTxtFileName
 }
 
 
@@ -62,8 +61,7 @@ function shortNameBySvn(){
 
 function cloneOrUpdateGit(){
 	local GitRemote=$1
-	local pwdPath=`pwd`
-	cd $Repo_Root
+	cd $WarehouseBaseDir/$RepoRootDirName
 	local GitDirName=`basename $GitRemote | cut -d'.' -f1`
     if [ -n $GitRemote ]; then
         echo $GitRemote "--->" $GitDirName
@@ -72,13 +70,12 @@ function cloneOrUpdateGit(){
         cd $GitDirName
         git pull
     fi
-    cd $pwdPath
 }
 function cloneOrUpdateSvn(){
 	local svnRemote=$1
 	local svnBranch=$2
 	local pwdPath=`pwd`
-	cd $Repo_Root
+	cd $WarehouseBaseDir/$RepoRootDirName
 	local svnDirname=`basename $svnRemote | cut -d'.' -f1`
     if [ -n $svnRemote ]; then
         echo $svnRemote "--->" $svnDirname
@@ -95,7 +92,7 @@ function copyAndUpdateGit(){
 	cd $1
 	local GitRemote=$2
 	local gitshortName=`basename $GitRemote | cut -d'.' -f1`
-	local TargetPath="$BaseDir/$Repo_Root/$gitshortName"
+	local TargetPath="$WarehouseBaseDir/$RepoRootDirName/$gitshortName"
     if [ -n $TargetPath ] && [ ! -d $TargetPath ]; then
         echo "****" $GitRemote "--->" $gitshortName
         echo "****mv `pwd` $TargetPath"

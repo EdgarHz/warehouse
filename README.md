@@ -20,9 +20,12 @@ The warehouse for git repo which I focused.
 		--> abc  ***/abc.git  tag: *  description:XXX
 
 	2. a script to list category, such as:
-		zgitsearch  -k:  ab
-		--> abc ***  tag: ab 
-		--> cd  ***  description:ab, cc 
+		zgitsearch  -t:  ab
+		--> s1 ***  tag: ab 
+
+        zgitsearch  -k:  ab
+        --> s1  *** tag:ab 
+        --> s2  *** tag:cc description:ab, cc 
 
 	3. a script to download, such as:
 		zgitclone -l  aa, bb, cc
@@ -31,14 +34,3 @@ The warehouse for git repo which I focused.
 	4. a script to backup note, such as:
 		zgitbackup 
 
-##project design
-	1. git submodule
-		Advantages: 
-			
-		Disadvantages:
-
-	2. cocoapods: 
-		Advantages: 
-
-		Disadvantages:
-			only ios

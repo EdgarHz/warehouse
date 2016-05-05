@@ -1,6 +1,6 @@
 #!/bin/sh
-
-source "$ZyWarehouseDir/bin/zyevnDefine.sh"
+WarehouseBinDir=`dirname $0`;
+source "$WarehouseBinDir/zWarehouseCommon.sh"
 
 Keyword=''
 while getopts "k:n" arg;
