@@ -1,6 +1,5 @@
 #!/bin/sh
-WarehouseBinDir=`dirname $0`;
-source "$WarehouseBinDir/zWarehouseCommon.sh"
+source zrWarehouseCommon;
 
 if [ "$#" -eq 0 ]; then   # 脚本需要至少一个命令行参数.
   echo "Usage $0 -[options k,nc]"

@@ -1,6 +1,5 @@
 #!/bin/sh
-WarehouseBinDir=`dirname $0`;
-source "$WarehouseBinDir/zWarehouseCommon.sh"
+source zWarehouseCommon;
 
 Keyword=''
 while getopts "k:n" arg;

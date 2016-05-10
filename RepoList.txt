@@ -44,6 +44,7 @@ https://github.com/carltaylor43/CAT-Audio-Box.git 	keywords:
 https://github.com/ccgus/fmdb.git 	keywords:
 https://github.com/chrisballinger/ChatSecure-iOS.git 	keywords:
 https://github.com/cloudkite/Masonry.git 	keywords:
+https://github.com/core-plot/core-plot 	keywords:
 https://github.com/danielebogo/DBCamera.git 	keywords:
 https://github.com/dealforest/Tuna.git 	keywords:
 https://github.com/defagos/CoconutKit.git 	keywords:
@@ -75,6 +76,7 @@ https://github.com/mwaterfall/MWPhotoBrowser.git 	keywords:
 https://github.com/nicklockwood/FastCoding.git 	keywords:
 https://github.com/nicklockwood/iCarousel.git 	keywords:
 https://github.com/niltsh/MPlayerX.git 	keywords:
+https://github.com/nswbmw/N-blog.git 	keywords: node.js
 https://github.com/owlcoding/PMAudioRecorderViewController.git 	keywords:
 https://github.com/path/FastImageCache.git 	keywords:
 https://github.com/piemonte/PBJVision.git 	keywords:

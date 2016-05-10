@@ -1,0 +1,13 @@
+#!/bin/sh
+source zrWarehouseCommon;
+
+DESTDIR=$WarehouseBaseDir/$RepoRootDirName/$1
+echo $DESTDIR
+if  [[ -n "$1" ]] && [[ -e $DESTDIR ]]; then
+	open $DESTDIR
+else
+	open $DESTDIR/..
+fi
+
+
+
