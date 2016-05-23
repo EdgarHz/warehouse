@@ -1,41 +1,102 @@
-#!/bin/sh
-source zWarehouseCommon;
+#!/bin/sh -
 
+error(){
+    echo "$@" 1>&2
+    usage_and_exit 1
+
+}
+usage(){
+    echo "Usage: $PROGRAM [-k] [-n] giturl/svnurl";
+    echo "-k: --keyword.  add some keyword to tag it."
+    echo "-noclone: -n --noclone. only add it to list, not clone it to localrepo"
+}
+usage_and_exit(){
+    usage
+    exit $1
+}
+version()
+{
+    echo "$PROGRAM version $Version"
+}
+warning() {
+    echo "$@" 1>&2
+    EXITCODE=`expr $EXITCODE +1 `jfd
+}
+PROGRAM=`basename $0`;
+Version=1.0.1;
+EXITCODE=0;
+
+WontCloneIt=false;
 Keyword=''
-while getopts "k:n" arg;
-do
-    case $arg in
-        k)
-            Keyword="$OPTARG"
-            echo "Description: $Keyword"
-            ;;
-        n)
-            WontCloneIt=true;
-            echo "will not clone it to $BaseDir/$Repo_Root"
-            ;;
-        ?)
-            echo "-k add keywords for this git repo"
-            echo "-nc only add it to list, no clone it to repos directory"
-            echo "no -- options"
-            exit;
-            ;;
-    esac
+Type="g";
+
+Options=`getopt "-o hnsmk: --long help,noclone,svn,hg,keyword::" $*`
+if [[ $? != 0 ]]; then
+    usage_and_exit
+fi
+set  -- $Options
+
+while true; do
+    echo $1
+    case $1 in
+    -h|--help)
+        usage_and_exit
+        shift
+        ;;
+    -n|--noclone)
+        WontCloneIt=true
+        shift;
+        ;;
+    -k|--keyword)
+        Keyword="$Keyword $2";
+        echo $Keyword
+        shift 2
+        ;;
+    -s|--svn)
+        Type="s";
+        shift
+        ;;
+    -m|--hg)
+        Type="h";
+        shift
+        ;;
+    --)
+        shift
+        break;
+        ;;
+    *)
+        usage_and_exit
+        break;
+        ;;
+     esac
 done
 
-shift $(($OPTIND -1))
-
-if [ "$#" -eq 0 ]; then   # 脚本需要至少一个命令行参数.
-  echo "Usage $0 -[options k,nc]"
-  exit -1
+if [[ $# -lt 1 ]]; then
+    usage_and_exit
 fi
 
-GitRemote=$1
+remoteURL=$1
+
+source zrWarehouseCommon;
 
 writeInfoToList $GitRemote $Keyword
 
 if [ ! $WontCloneIt ]; then
-    cloneOrUpdateGit $GitRemote
+    case $Type in
+     h)
+        :
+        ;;
+     s)
+        svnCloneOrUpdate $remoteURL
+        ;;
+        
+     *)
+        gitCloneOrUpdate $remoteURL
+        ;;
+esac
 fi
+
+
 
 
 

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+#only for study
+
+RepoCnt=`wc -l $1|awk '{print $1}'`;
+TmpFile=`dirname $1`"/tmpfile.tmp";
+
+rm -rf $TmpFile
+touch $TmpFile
+for i in {1..3}
+do
+	String=`awk -v line=$i 'NR==line' $1`
+	# echo $String;
+	gitRepoURL=`awk -v line=$i 'NR==line{print $1;}' $1`;
+	Keywords=`awk -v line=$i '(NR==line){print $3;}' $1;`;
+	gitRepoName=$(gitRepoURL##*/);
+	# echo $Keywords;
+	if [[ ! -z $gitRepoURL ]]; then
+
+		if [[ -z $Keywords ]]; then
+			echo $gitRepo;
+			read -p "need keywords:" Keywords; 
+		fi
+		cat $gitRepoName ' ' $gitRepoURL ' ' $Keywords >> $TmpFile;
+	fi
+done
+
