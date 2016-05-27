@@ -6,9 +6,11 @@ error(){
 
 }
 usage(){
-    echo "Usage: $PROGRAM [-k] [-n] giturl/svnurl";
-    echo "-k: --keyword.  add some keyword to tag it."
-    echo "-noclone: -n --noclone. only add it to list, not clone it to localrepo"
+    echo "Usage: $PROGRAM [-k|keyword] [-n|--noclone] [-l|--log|-s|--svn|-g|--git|-m|--hg] giturl/svnurl";
+
+    echo "-k --keyword:  add some keyword to tag it."
+    echo "-n --noclone: only add it to list, not clone it to localrepo"
+
 }
 usage_and_exit(){
     usage
@@ -28,16 +30,19 @@ EXITCODE=0;
 
 WontCloneIt=false;
 Keyword=''
-Type="g";
+Type="git";
 
-Options=`getopt "-o hnsmk: --long help,noclone,svn,hg,keyword::" $*`
+Options=`getopt  hnlgsmk::  $*`
+#--long help,noclone,git,svn,hg,keyword::
 if [[ $? != 0 ]]; then
     usage_and_exit
 fi
-set  -- $Options
+# echo $Options
+eval set -- $Options
+# echo $@ "??"
 
 while true; do
-    echo $1
+    echo "\$1" $1
     case $1 in
     -h|--help)
         usage_and_exit
@@ -47,18 +52,27 @@ while true; do
         WontCloneIt=true
         shift;
         ;;
+    -l|--log)
+        Type="log";
+        WontCloneIt=true
+        shift;
+        ;;
+    -g|--git)
+        Type="git";
+        shift
+        ;;
+    -s|--svn)
+        Type="svn";
+        shift
+        ;;
+    -m|--hg)
+        Type="hg";
+        shift
+        ;;
     -k|--keyword)
         Keyword="$Keyword $2";
         echo $Keyword
         shift 2
-        ;;
-    -s|--svn)
-        Type="s";
-        shift
-        ;;
-    -m|--hg)
-        Type="h";
-        shift
         ;;
     --)
         shift
@@ -71,6 +85,7 @@ while true; do
      esac
 done
 
+
 if [[ $# -lt 1 ]]; then
     usage_and_exit
 fi
@@ -79,19 +94,40 @@ remoteURL=$1
 
 source zrWarehouseCommon;
 
-writeInfoToList $GitRemote $Keyword
-
-if [ ! $WontCloneIt ]; then
-    case $Type in
-     h)
+shortName='';
+case $Type in
+     log)
         :
         ;;
-     s)
-        svnCloneOrUpdate $remoteURL
+     hg)
+        :
+        ;;
+     svn)
+        shortName=$(svnShortName $remoteURL);
         ;;
         
      *)
-        gitCloneOrUpdate $remoteURL
+        shortName=$(gitShortName $remoteURL);
+        ;;
+esac
+echo $Type $shortName $remoteURL $Keywordzr
+writeInfoToList $Type $shortName $remoteURL $Keyword
+
+exit;
+if [[  $WontCloneIt -eq false ]]; then
+    case $Type in
+     log)
+        :
+        ;;
+     hg)
+        :
+        ;;
+     svn)
+        svnCloneOrUpdate $RepoRootDir $remoteURL
+        ;;
+        
+     *)
+        gitCloneOrUpdate $RepoRootDir $remoteURL
         ;;
 esac
 fi

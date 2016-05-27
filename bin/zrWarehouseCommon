@@ -5,11 +5,15 @@ WarehouseBaseDir=`dirname $0`/..
 RepoRootDirName="repos"
 RegisterTxtFileName="RepoList.txt"
 
-RepoRootDir="$WarehouseBaseDir/RepoRootDirName"
+
+RepoRootDir="$WarehouseBaseDir/$RepoRootDirName"
 
 . "$WarehouseBaseDir/bin/zrCommon.sh"
+. "$WarehouseBaseDir/bin/zrGitHelper.sh"
+. "$WarehouseBaseDir/bin/zrSvnHelper.sh"
 #创建相关目录
 function checkDir(){
+	local oldpath=`pwd`
 	cd $WarehouseBaseDir
 	if [ ! -d $RepoRootDirName ]; then
 	  mkdir $RepoRootDirName
@@ -19,13 +23,16 @@ function checkDir(){
 	if [ ! -f $RegisterTxtFileName ]; then
 	  touch $RegisterTxtFileName
 	fi
+	cd $oldpath;
 }
 
 #写到列表文件
 function writeInfoToList(){
-	local Url=$1;
-	local Keyword=$2;
-	local LineContent="$Url \tkeywords: $Keyword"
+	local repoType=$1;
+	local shortName=$2;
+	local Url=$3;
+	local Keyword=$4;
+	local LineContent="$repoType $shortName $Url $Keyword"
 	echo $LineContent | cat >> $WarehouseBaseDir/$RegisterTxtFileName
 	sort $WarehouseBaseDir/$RegisterTxtFileName | uniq | cat > $WarehouseBaseDir/temp.txt
 	mv $WarehouseBaseDir/temp.txt $WarehouseBaseDir/$RegisterTxtFileName

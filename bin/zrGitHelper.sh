@@ -15,8 +15,11 @@ function gitUrl(){
 	echo $GitRemote;
 }
 #fetch short name
-function gitShortName(){
-    local url=`gitUrl`;
+function gitShortName(){ 
+local url=$1;
+if [[ -z url ]]; then
+    url=`gitUrl`;
+fi
 	echo `basename $url | cut -d'.' -f1`
 }
 
@@ -41,12 +44,12 @@ function gitCloneOrUpdate(){
 	local gitRemote=$2
     local pwdPath=`pwd`
 	cd $gitTargetDir
-	local GitDirName=`basename $gitRemote | cut -d'.' -f1`
-    if [ -n $gitRemote ]; then
-        git clone $GitRemote $GitDirName
-    else
-        cd $GitDirName
+	local gitDirName=`basename $gitRemote | cut -d'.' -f1`
+    if [ -d $gitDirName ]; then
+        cd $gitDirName
         git pull
+    else
+        git clone $gitRemote $gitDirName
     fi
     local pwdPath=`pwd`
 }

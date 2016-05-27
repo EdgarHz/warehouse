@@ -1,4 +1,121 @@
--k 	keywords:
-aa 	keywords:
-aaa 	keywords:
-https://github.com/AFNetworking/AFNetworking.git 	keywords:
+git AKSegmentedControl https://github.com/alikaragoz/AKSegmentedControl.git view
+git AMCoreAudio https://github.com/sonicbee9/AMCoreAudio.git audio
+git Alcatraz https://github.com/alcatraz/Alcatraz.git xcode_tools
+git AppleCoreAudioUtilityClasses https://github.com/thehtb/AppleCoreAudioUtilityClasses.git audio
+git AsyncDisplayKit https://github.com/facebook/AsyncDisplayKit.git view
+git AudioKit https://github.com/audiokit/AudioKit.git audio
+git BlocksKit https://github.com/zwaldowski/BlocksKit.git toread
+git CAT-Audio-Box https://github.com/carltaylor43/CAT-Audio-Box.git audio
+git Canvas https://github.com/CanvasPod/Canvas.git h5
+git ChatSecure-iOS https://github.com/chrisballinger/ChatSecure-iOS.git chart
+git CocoaHTTPServer https://github.com/robbiehanson/CocoaHTTPServer httpServer
+git CoconutKit https://github.com/defagos/CoconutKit.git view
+git Colours https://github.com/bennyguitar/Colours.git 
+git DAVKit git://github.com/mattrajca/DAVKit.git
+git DBCamera https://github.com/danielebogo/DBCamera.git live
+git DateTools https://github.com/MatthewYork/DateTools.git util
+git EZAudio https://github.com/syedhali/EZAudio.git audio
+git FLEX https://github.com/Flipboard/FLEX.git debug
+git FastCoding https://github.com/nicklockwood/FastCoding.git archive
+git FastImageCache https://github.com/path/FastImageCache.git image
+git Finch https://github.com/zoul/Finch.git
+git FlvParser https://github.com/lnmcc/FlvParser.git live
+git GBInfiniteScrollView https://github.com/gblancogarcia/GBInfiniteScrollView.git view
+git GPUImage https://github.com/BradLarson/GPUImage.git live
+git Graphics-and-Animation-on-iOS https://github.com/vandadnp/Graphics-and-Animation-on-iOS.git view
+git IQKeyboardManager https://github.com/hackiftekhar/IQKeyboardManager.git keyboard
+git InfinitePagingView https://github.com/caesarcat/InfinitePagingView.git view
+git JSONModel https://github.com/icanzilb/JSONModel.git json
+git JSPatch https://github.com/bang590/JSPatch.git hotfix
+git JSQMessagesViewController https://github.com/jessesquires/JSQMessagesViewController.git view
+git JazzHands https://github.com/IFTTT/JazzHands.git
+git KLDownloadManage https://github.com/liandyii/KLDownloadManage.git
+git KVOController https://github.com/facebook/KVOController.git
+git LiveVideoCoreSDK git@github.com:runner365/LiveVideoCoreSDK.git
+git LumberjackConsole https://github.com/PTEz/LumberjackConsole.git
+git MMWormhole https://github.com/mutualmobile/MMWormhole.git
+git MPlayerX https://github.com/niltsh/MPlayerX.git
+git MWPhotoBrowser https://github.com/mwaterfall/MWPhotoBrowser.git
+git MagicCamera https://github.com/wuhaoyu1990/MagicCamera.git
+git MagicalRecord https://github.com/magicalpanda/MagicalRecord.git
+git Mantle https://github.com/github/Mantle.git
+git Masonry https://github.com/cloudkite/Masonry.git
+git MediaLibraryKit git://git.videolan.org/MediaLibraryKit.git
+git N-blog https://github.com/nswbmw/N-blog.git
+git OBSlider git://github.com/ole/OBSlider.git
+git PBJVision https://github.com/piemonte/PBJVision.git
+git PLCameraStreamingKit https://github.com/pili-engineering/PLCameraStreamingKit.git
+git PLPlayerKit https://github.com/pili-engineering/PLPlayerKit.git
+git PLVisualAttributeConstraints https://github.com/Polidea/PLVisualAttributeConstraints.git
+git PMAudioRecorderViewController https://github.com/owlcoding/PMAudioRecorderViewController.git
+git PNChart https://github.com/kevinzhow/PNChart.git
+git Play https://github.com/sbooth/Play.git
+git PlutoLand https://github.com/xhan/PlutoLand.git
+git PonyDebugger https://github.com/square/PonyDebugger.git
+git QuincyKit git://github.com/TheRealKerni/QuincyKit.git
+git RESideMenu https://github.com/romaonthego/RESideMenu.git
+git RSSwizzle https://github.com/rabovik/RSSwizzle.git
+git ReactiveCocoa https://github.com/ashfurrow/ReactiveCocoa.git
+git RestKit https://github.com/RestKit/RestKit.git
+git SCRecorder https://github.com/rFlex/SCRecorder.git
+git SDWebImage https://github.com/rs/SDWebImage.git
+git SVProgressHUD https://github.com/SVProgressHUD/SVProgressHUD.git
+git SWTableViewCell https://github.com/CEWendel/SWTableViewCell.git
+git SlackTextViewController https://github.com/slackhq/SlackTextViewController.git
+git The-Art-Of-Programming-By-July https://github.com/julycoding/The-Art-Of-Programming-By-July.git
+git TheAmazingAudioEngine https://github.com/TheAmazingAudioEngine/TheAmazingAudioEngine.git
+git Tuna https://github.com/dealforest/Tuna.git
+git TurtleBezierPath https://github.com/mindbrix/TurtleBezierPath.git
+git UIScrollView-InfiniteScroll https://github.com/pronebird/UIScrollView-InfiniteScroll.git
+git UITableView-FDTemplateLayoutCell https://github.com/forkingdog/UITableView-FDTemplateLayoutCell.git
+git VLCKit git://git.videolan.org/vlc-bindings/VLCKit.git
+git VideoCore https://github.com/jgh-/VideoCore.git
+git VideoToolboxPlus https://github.com/McZonk/VideoToolboxPlus.git
+git ViewDeck https://github.com/ViewDeck/ViewDeck.git
+git XMPPFramework https://github.com/robbiehanson/XMPPFramework.git
+git XYStyle https://github.com/uxyheaven/XYStyle.git
+git YapDatabase https://github.com/yaptv/YapDatabase.git
+git ZLHistogramAudioPlot https://github.com/zhxnlai/ZLHistogramAudioPlot.git
+git alure git://repo.or.cz/alure.git
+git audiograph https://github.com/tkzic/audiograph.git
+git chisel https://github.com/facebook/chisel.git
+git classdump-dyld https://github.com/limneos/classdump-dyld.git
+git compiler-rt https://github.com/EdgarHz/compiler-rt.git
+git crtmpserver https://github.com/mdavid/crtmpserver.git
+git dumpdecrypted https://github.com/stefanesser/dumpdecrypted.git
+git ffmpeg git://source.ffmpeg.org/ffmpeg.git
+git fishhook https://github.com/facebook/fishhook.git
+git fmdb https://github.com/ccgus/fmdb.git
+git get_iplayer git://git.infradead.org/get_iplayer.git
+git iCarousel https://github.com/nicklockwood/iCarousel.git
+git ichm https://github.com/robin/ichm.git
+git ijkplayer https://github.com/Bilibili/ijkplayer.git
+git kxmovie https://github.com/kolyvan/kxmovie.git
+git librtmp-iOS https://github.com/ifactorylab/librtmp-iOS.git
+git libstreaming https://github.com/fyhertz/libstreaming.git
+git llvm https://github.com/EdgarHz/llvm.git
+git llvm-pass-skeleton git@github.com:sampsyo/llvm-pass-skeleton.git
+git netfox https://github.com/kasketis/netfox.git
+git nimbus https://github.com/jverkoey/nimbus.git
+git novocaine https://github.com/alexbw/novocaine.git
+git nui https://github.com/tombenner/nui.git
+git objection https://github.com/atomicobject/objection.git
+git ocmethodmissing https://bitbucket.org/iamleeg/ocmethodmissing.git
+git openal-soft https://github.com/apportable/openal-soft.git
+git plcrashreporter https://opensource.plausible.coop/stash/scm/plcr/plcrashreporter.git
+git realm-cocoa https://github.com/realm/realm-cocoa.git
+git rtmpdump git://git.ffmpeg.org/rtmpdump
+git samples https://github.com/webrtc/samples.git
+git simplearray https://bitbucket.org/iamleeg/simplearray.git
+git socket https://github.com/socketio/socket.io.git
+git speex http://git.xiph.org/speex.git/
+git video_play_edit_sdk https://github.com/LanSoSdk/video_play_edit_sdk.git
+git webrtc https://chromium.googlesource.com/external/webrtc
+log AVCaptureToAudioUnit audio
+log CoreAudioUtilityClasses audio
+log GLAirplay airplay
+log MixerHost audio
+log MultipeerGroupChat 局域网通信
+log iPhoneMultichannelMixerTest audio
+log oalTouch openal
+svn webkit https://svn.webkit.org/repository/webkit

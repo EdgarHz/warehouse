@@ -17,7 +17,10 @@ function svnUrl(){
 	echo $svnRemote
 }
 function svnShortName(){
-    local svnName=`svnUrlOfThisDir`
+    local svnName=$1;
+    if [[ -z $svnName ]]; then
+       svnName=`svnUrl`
+    fi
     svnName=${svnName##*/};
     echo $svnName;
 }
@@ -47,11 +50,11 @@ function svnCloneOrUpdate(){
 	local pwdPath=`pwd`
 	cd $svnTargetDir;
 	local svnDirname=`basename $svnRemote | cut -d'.' -f1`
-    if [ -n $svnRemote ]; then
-        svn clone $svnRemote $svnDirname
-    else
+    if [ -d $svnDirname ]; then
         cd $svnDirname
         svn update
+    else
+        svn clone $svnRemote $svnDirname
     fi
     cd $pwdPath
 }

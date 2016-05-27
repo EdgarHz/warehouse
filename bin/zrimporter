@@ -16,13 +16,14 @@ foreachd(){
             if [[ -d ".git" ]]; then
                 local gitRemote=$(gitUrl)
                 local gitShortName=$(gitShortName)
-                echo "----------at: $file find:$gitRemote"
-                writeInfoToList $gitRemote ""
+                echo "----------at: $pathdir/$file find git:$gitRemote"
+                writeInfoToList "git" $gitShortName $gitRemote ""
                 mvDirIfExistDoNothing  `pwd` $RepoRootDir $gitShortName
             elif [[ -d ".svn" ]]; then
-                local svnURL=$(svnURL)
+                local svnURL=$(svnUrl)
                 local svnShortName=$(svnShortName)
-                writeInfoToList $svnURL ""
+                echo "----------at: $pathdir/$file find svn:$svnURL"
+                writeInfoToList "svn" $svnShortName $svnURL ""
                 mvDirIfExistDoNothing  `pwd` $RepoRootDir $svnShortName
             elif [ "${file##*.}" != 'xcworkspace' ] && [ "${file##*.}" != 'xcodeproj' ] && [ "${file##*.}" != 'lproj' ]; then
                 # echo "foreachd $pathdir/$file"
@@ -33,7 +34,16 @@ foreachd(){
     done
 }
 
-cd $1
+echo `pwd`
+if [[ -d $1 ]]; then
+    cd $1
+elif [[ -d "./$1" ]]; then
+    cd "./$1"
+else
+    echo "bad path"
+    exit -1;
+fi
+
 foreachd `pwd`
 
 
