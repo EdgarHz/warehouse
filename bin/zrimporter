@@ -1,5 +1,5 @@
 #!/bin/sh
-source zrWarehouseCommon;
+source zrWarehouseCommon.sh;
 
 if [ "$#" -eq 0 ]; then   # 脚本需要至少一个命令行参数.
   echo "Usage $0 -[options k,nc]"
@@ -25,6 +25,12 @@ foreachd(){
                 echo "----------at: $pathdir/$file find svn:$svnURL"
                 writeInfoToList "svn" $svnShortName $svnURL ""
                 mvDirIfExistDoNothing  `pwd` $RepoRootDir $svnShortName
+            elif [[ $(fossilIsUnderControl) -eq  0 ]]; then
+                local url=$(fossilUrl)
+                local shortName=$(fossilShortName)
+                echo "----------at: $pathdir/$file find fossil:$url"
+                writeInfoToList "fossil" $shortName $url ""
+                mvDirIfExistDoNothing  `pwd` $RepoRootDir $shortName
             elif [ "${file##*.}" != 'xcworkspace' ] && [ "${file##*.}" != 'xcodeproj' ] && [ "${file##*.}" != 'lproj' ]; then
                 # echo "foreachd $pathdir/$file"
                 foreachd  $pathdir/$file

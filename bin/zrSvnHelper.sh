@@ -59,16 +59,16 @@ function svnCloneOrUpdate(){
     cd $pwdPath
 }
 #move git at $1 to $2/$3
-function svnMove(){
-    local srcPath=$1
-    local dirPath=$2
-    local svnShortName=$3
-    local targetPath="$dirPath/$gitShortName"
-    if [ -n $targetPath ] && [ ! -d $targetPath ]; then
-        echo "****$svnShortName: mv from:$srcPath to:$targetPath"
-        mv  $srcPath $targetPath
-    fi
-}
+# function svnMove(){
+#     local srcPath=$1
+#     local dirPath=$2
+#     local svnShortName=$3
+#     local targetPath="$dirPath/$gitShortName"
+#     if [ -n $targetPath ] && [ ! -d $targetPath ]; then
+#         echo "****$svnShortName: mv from:$srcPath to:$targetPath"
+#         mv  $srcPath $targetPath
+#     fi
+# }
 
 function testSvnFunc(){
     if [[ svnIsUnderControl -eq 0 ]]; then

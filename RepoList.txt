@@ -1,3 +1,5 @@
+fossil src http://www.sqlite.org/cgi/src
+fossil www.sqlite.org_cgi_src http://www.sqlite.org/cgi/src
 git AKSegmentedControl https://github.com/alikaragoz/AKSegmentedControl.git view
 git AMCoreAudio https://github.com/sonicbee9/AMCoreAudio.git audio
 git Alcatraz https://github.com/alcatraz/Alcatraz.git xcode_tools

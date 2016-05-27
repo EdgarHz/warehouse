@@ -17,7 +17,7 @@ function gitUrl(){
 #fetch short name
 function gitShortName(){ 
 local url=$1;
-if [[ -z url ]]; then
+if [[ -z $url ]]; then
     url=`gitUrl`;
 fi
 	echo `basename $url | cut -d'.' -f1`
@@ -59,7 +59,7 @@ function gitMove(){
     local srcPath=$1
     local dirPath=$2
 	local gitRemote=$3
-	local gitShortName=`basename $gitRemote | cut -d'.' -f1`
+	local gitShortName=$(gitShortName $gitRemote)
 	local targetPath="$2/$gitShortName"
     if [ -n $targetPath ] && [ ! -d $targetPath ]; then
         echo "****$gitShortName: mv from:`pwd` to:$targetPath"

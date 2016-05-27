@@ -1,5 +1,5 @@
 #!/bin/sh
-source zrWarehouseCommon;
+source zrWarehouseCommon.sh;
 
 DESTDIR=$WarehouseBaseDir/$RepoRootDirName/$1
 echo $DESTDIR

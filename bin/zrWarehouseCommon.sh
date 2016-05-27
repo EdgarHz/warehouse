@@ -11,6 +11,7 @@ RepoRootDir="$WarehouseBaseDir/$RepoRootDirName"
 . "$WarehouseBaseDir/bin/zrCommon.sh"
 . "$WarehouseBaseDir/bin/zrGitHelper.sh"
 . "$WarehouseBaseDir/bin/zrSvnHelper.sh"
+. "$WarehouseBaseDir/bin/zrFossilHelper.sh"
 #创建相关目录
 function checkDir(){
 	local oldpath=`pwd`

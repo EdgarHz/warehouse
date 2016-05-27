@@ -6,7 +6,7 @@ error(){
 
 }
 usage(){
-    echo "Usage: $PROGRAM [-k|keyword] [-n|--noclone] [-l|--log|-s|--svn|-g|--git|-m|--hg] giturl/svnurl";
+    echo "Usage: $PROGRAM [-k|keyword] [-n|--noclone] [-l|--log|-s|--svn|-g|--git|-m|--hg|-f|--fossil] giturl/svnurl";
 
     echo "-k --keyword:  add some keyword to tag it."
     echo "-n --noclone: only add it to list, not clone it to localrepo"
@@ -69,6 +69,10 @@ while true; do
         Type="hg";
         shift
         ;;
+    -f|--fossil)
+        Type="fossil";
+        shift
+        ;;
     -k|--keyword)
         Keyword="$Keyword $2";
         echo $Keyword
@@ -92,32 +96,34 @@ fi
 
 remoteURL=$1
 
-source zrWarehouseCommon;
+source zrWarehouseCommon.sh;
 
 shortName='';
 case $Type in
-     log)
+    hg)
         :
         ;;
-     hg)
-        :
-        ;;
-     svn)
+    svn)
         shortName=$(svnShortName $remoteURL);
         ;;
         
-     *)
+    git)
         shortName=$(gitShortName $remoteURL);
+        ;;
+    hg)
+        shortName=$(fossilShortName $remoteURL);
+        ;;
+     *)
+        :
         ;;
 esac
 echo $Type $shortName $remoteURL $Keywordzr
 writeInfoToList $Type $shortName $remoteURL $Keyword
 
-exit;
 if [[  $WontCloneIt -eq false ]]; then
     case $Type in
-     log)
-        :
+     git)
+        gitCloneOrUpdate $RepoRootDir $remoteURL
         ;;
      hg)
         :
@@ -125,9 +131,10 @@ if [[  $WontCloneIt -eq false ]]; then
      svn)
         svnCloneOrUpdate $RepoRootDir $remoteURL
         ;;
-        
+     fossil)
+        fossilCloneOrUpdate $RepoRootDir $remoteURL
+        ;;
      *)
-        gitCloneOrUpdate $RepoRootDir $remoteURL
         ;;
 esac
 fi
