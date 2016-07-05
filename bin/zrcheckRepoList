@@ -1,0 +1,65 @@
+#!/bin/sh -
+
+source zrWarehouseCommon.sh
+
+RepoListFile="$WarehouseBaseDir/$RegisterTxtFileName"
+TempRepoLitNew="$WarehouseBaseDir/$RegisterTxtFileName.new"
+TempRepoLitUncomp="$WarehouseBaseDir/$RegisterTxtFileName.uncomp"
+
+function check(){
+	rm -rf $TempRepoLitNew
+	rm -rf $TempRepoLitUncomp
+	if [[ -e $TempRepoLitNew ]]; then
+		echo "TempRepoLitNew has existed"
+		exit 0
+	fi
+	if [[ -e $TempRepoLitUncomp ]]; then
+		echo "TempRepoLitUncomp has existed"
+		exit 0
+	fi
+
+	cat $RepoListFile | 
+	awk '(NF>3){ print $0; }'  > $TempRepoLitNew
+
+	cat $RepoListFile | 
+	awk '(NF<=3){ print $0; }'  > $TempRepoLitUncomp
+
+	sublime $TempRepoLitUncomp
+	sublime $TempRepoLitNew
+}
+
+function merge(){
+	if [[ ! -e $TempRepoLitNew ]]; then
+		echo "TempRepoLitNew hasn't exist"
+		check
+		exit 0
+	fi
+	mv $RepoListFile $RepoListFile.old
+	mv $TempRepoLitNew $RepoListFile
+	cat $TempRepoLitUncomp | 
+	awk '(NF>3){ print $0; }' > $TempRepoLitNew
+	cat $TempRepoLitNew >> $RepoListFile
+	rm -rf $TempRepoLitNew
+	cat $TempRepoLitUncomp | 
+	awk '(NF<=3){ print $0; }' > $TempRepoLitUncomp.temp
+	rm -rf $TempRepoLitUncomp
+	mv $TempRepoLitUncomp.temp $TempRepoLitUncomp
+	uniqRepoInfoList
+}
+
+
+if [[ $# -eq 0 ]] || [[ $1 = "check" ]]; then
+	check
+elif [[ $1 = "-h" ]]; then
+	echo "usage:"
+	echo "check or merge"
+else
+	merge
+fi
+
+
+
+
+
+
+

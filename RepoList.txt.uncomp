@@ -1,60 +1,8 @@
-
-fossil www.sqlite.org_cgi_src http://www.sqlite.org/cgi/src sql sqlite
-
-git 6983547 https://gist.github.com/6983547.git ffmepg build shell
-
-git AFNetworking https://github.com/AFNetworking/AFNetworking.git  ios network
-git AKSegmentedControl https://github.com/alikaragoz/AKSegmentedControl.git view
-git AMCoreAudio https://github.com/sonicbee9/AMCoreAudio.git audio
-
-
-git Alcatraz https://github.com/mneorr/Alcatraz.git xcode plug-in
-git AppleCoreAudioUtilityClasses https://github.com/thehtb/AppleCoreAudioUtilityClasses.git audio
-git AsyncDisplayKit https://github.com/facebook/AsyncDisplayKit.git view
-git AudioKit https://github.com/audiokit/AudioKit.git audio
-git BeautifyFaceDemo https://github.com/Guikunzhi/BeautifyFaceDemo.git live
-
-git BeeFramework https://github.com/gavinkwoe/BeeFramework.git  ios framework tencent
-
-git BlocksKit https://github.com/pandamonia/BlocksKit.git  objc extension
-
-
-git CAT-Audio-Box https://github.com/carltaylor43/CAT-Audio-Box.git  live audio
-
-git Canvas https://github.com/CanvasPod/Canvas.git h5
-git ChatSecure-iOS https://github.com/chrisballinger/ChatSecure-iOS.git chart
-
-git ClangFormat-Xcode https://github.com/travisjeffery/ClangFormat-Xcode.git  xcode plug-in
-
-git CocoaAsyncSocket https://github.com/robbiehanson/CocoaAsyncSocket.git  objc socket network
-git CocoaHTTPServer https://github.com/robbiehanson/CocoaHTTPServer httpServer
-git CoconutKit https://github.com/defagos/CoconutKit.git view
-
-git Colours https://github.com/bennyguitar/Colours.git ios ui
 git DAVKit git://github.com/mattrajca/DAVKit.git
-
-git DBCamera https://github.com/danielebogo/DBCamera.git live
-git DateTools https://github.com/MatthewYork/DateTools.git util
-git EZAudio https://github.com/syedhali/EZAudio.git audio
-
-git FFmpeg-iOS-Encoder https://github.com/chrisballinger/FFmpeg-iOS-Encoder.git live
-git FLEX https://github.com/Flipboard/FLEX.git debug
-git FastCoding https://github.com/nicklockwood/FastCoding.git archive
-git FastImageCache https://github.com/path/FastImageCache.git image
 git Finch https://github.com/zoul/Finch.git
-git FlameGraph https://github.com/brendangregg/FlameGraph.git dtrace
 git FlappySwift https://github.com/fullstackio/FlappySwift.git
-git FlvParser https://github.com/lnmcc/FlvParser.git live
-git GBInfiniteScrollView https://github.com/gblancogarcia/GBInfiniteScrollView.git view
 
-git GPUImage https://github.com/BradLarson/GPUImage.git live
-git Graphics-and-Animation-on-iOS https://github.com/vandadnp/Graphics-and-Animation-on-iOS.git view
 git IOS-CoreData-XML-Sqlite-Generator https://github.com/cameronB/IOS-CoreData-XML-Sqlite-Generator..git
-git IQKeyboardManager https://github.com/hackiftekhar/IQKeyboardManager.git keyboard
-git InfinitePagingView https://github.com/caesarcat/InfinitePagingView.git view
-git JSONModel https://github.com/icanzilb/JSONModel.git json
-git JSPatch https://github.com/bang590/JSPatch.git hotfix
-git JSQMessagesViewController https://github.com/jessesquires/JSQMessagesViewController.git view
 git JazzHands https://github.com/IFTTT/JazzHands.git
 git KLDownloadManage https://github.com/liandyii/KLDownloadManage.git
 git KVOController https://github.com/facebook/KVOController.git
@@ -75,11 +23,9 @@ git NSUserDefaults-AESEncryptor https://github.com/NZN/NSUserDefaults-AESEncrypt
 git OBSlider git://github.com/ole/OBSlider.git
 git ObjectiveGumbo https://github.com/programmingthomas/ObjectiveGumbo.git
 git OrganisingCoreData https://github.com/chrismiles/OrganisingCoreData.git
-git PBJVision https://github.com/piemonte/PBJVision camera
 
 git PLCameraStreamingKit https://github.com/pili-engineering/PLCameraStreamingKit.git
 
-git PLPlayerKit https://github.com/pili-engineering/PLPlayerKit.git live
 git PLVisualAttributeConstraints https://github.com/Polidea/PLVisualAttributeConstraints.git
 git PMAudioRecorderViewController https://github.com/owlcoding/PMAudioRecorderViewController.git
 git PNChart https://github.com/kevinzhow/PNChart.git
@@ -97,14 +43,12 @@ git ReactiveCocoa https://github.com/ReactiveCocoa/ReactiveCocoa.git
 git ReactiveCocoaLayout https://github.com/ReactiveCocoa/ReactiveCocoaLayout.git
 git RestKit https://github.com/RestKit/RestKit.git
 git SCRecorder https://github.com/rFlex/SCRecorder.git
-git SCU https://github.com/neolee/SCU.git ibus
 git SDWebImage https://github.com/rs/SDWebImage.git
 git SVProgressHUD https://github.com/SVProgressHUD/SVProgressHUD.git
 git SWTableViewCell https://github.com/CEWendel/SWTableViewCell.git
 git ShareKit https://github.com/ShareKit/ShareKit.git
 
 git SlackTextViewController https://github.com/slackhq/SlackTextViewController.git
-git SocketRocket https://github.com/square/SocketRocket.git websocket
 git The-Art-Of-Programming-By-July https://github.com/julycoding/The-Art-Of-Programming-By-July.git
 git TheAmazingAudioEngine https://github.com/TheAmazingAudioEngine/TheAmazingAudioEngine.git
 git Tuna https://github.com/dealforest/Tuna.git
@@ -113,11 +57,9 @@ git UIScrollView-InfiniteScroll https://github.com/pronebird/UIScrollView-Infini
 git UITableView-FDTemplateLayoutCell https://github.com/forkingdog/UITableView-FDTemplateLayoutCell.git
 git VLCKit git://git.videolan.org/vlc-bindings/VLCKit.git
 
-git VideoCore https://github.com/jgh-/VideoCore.git live
 git VideoToolboxPlus https://github.com/McZonk/VideoToolboxPlus.git
 git ViewDeck https://github.com/ViewDeck/ViewDeck.git
 
-git XMPPFramework https://github.com/robbiehanson/XMPPFramework.git xmpp
 git XYStyle https://github.com/uxyheaven/XYStyle.git
 git XcodeColors https://github.com/robbiehanson/XcodeColors
 git YapDatabase https://github.com/yaptv/YapDatabase.git
@@ -137,7 +79,6 @@ git cocos2d-x https://github.com/cocos2d/cocos2d-x.git
 git compiler-rt https://github.com/EdgarHz/compiler-rt.git
 git cordova-ios https://github.com/apache/cordova-ios.git
 git crtmpserver https://github.com/mdavid/crtmpserver.git
-git depot_tools https://chromium.googlesource.com/chromium/tools/depot_tools.git chrome
 git djangoproject https://github.com/django/djangoproject.com.git
 git dumpdecrypted https://github.com/stefanesser/dumpdecrypted.git
 git expecta https://github.com/specta/expecta.git
@@ -149,7 +90,6 @@ git gnustep-base https://github.com/gnustep/gnustep-base.git
 git gnustep-examples https://github.com/gnustep/gnustep-examples.git
 git gnustep-gui https://github.com/gnustep/gnustep-gui.git
 git gnustep-libobjc2 https://github.com/gnustep/gnustep-libobjc2.git
-git gyp https://chromium.googlesource.com/external/gyp make
 git hierarchydetective https://github.com/EdgarHz/hierarchydetective.git
 git iCarousel https://github.com/nicklockwood/iCarousel.git
 git iOS-Universal-Framework https://github.com/kstenerud/iOS-Universal-Framework.git
@@ -171,7 +111,6 @@ git motion https://github.com/sackmotion/motion.git
 git netfox https://github.com/kasketis/netfox.git
 git nfc-reader https://github.com/nadam/nfc-reader.git
 git nimbus https://github.com/jverkoey/nimbus.git
-git ninja https://github.com/ninja-build/ninja.git swift
 git novocaine https://github.com/alexbw/novocaine.git
 git nui https://github.com/tombenner/nui.git
 git objection https://github.com/atomicobject/objection.git
@@ -179,30 +118,21 @@ git objective-c-sql-query-builder https://github.com/ziminji/objective-c-sql-que
 git ocmethodmissing https://bitbucket.org/iamleeg/ocmethodmissing.git
 git ofxiOSBoost https://github.com/danoli3/ofxiOSBoost.git
 git opalang https://github.com/MLstate/opalang.git
-git openal-soft git://repo.or.cz/openal-soft.git openal
 git openal-soft https://github.com/apportable/openal-soft.git
 git pjsip https://github.com/chebur/pjsip.git
 git plcrashreporter https://opensource.plausible.coop/stash/scm/plcr/plcrashreporter.git
-git pusher pusher live
 git readthedocs https://github.com/rtfd/readthedocs.org.git
 git realm-cocoa https://github.com/realm/realm-cocoa.git
 git rtmp-wrapper https://github.com/ifactorylab/rtmp-wrapper.git
-git rtmp_streamer_for_android https://github.com/Vbytes/rtmp_streamer_for_android.git live
-git rtmp_streamer_for_ios https://github.com/Vbytes/rtmp_streamer_for_ios.git live
 git rtmpdump git://git.ffmpeg.org/rtmpdump
 git samples https://github.com/webrtc/samples.git
 git simplearray https://bitbucket.org/iamleeg/simplearray.git
 git socket https://github.com/socketio/socket.io.git
 
 git speex https://git.xiph.org/speex.git/
-git srs-sea https://github.com/ossrs/srs-sea.git live
-git swift https://github.com/EdgarHz/swift.git swift
-git swift-evolution https://github.com/apple/swift-evolution.git swift
 git the-swift-programming-language-in-chinese https://github.com/numbbbbb/the-swift-programming-language-in-chinese.git
 git toast-notifications-ios https://github.com/ecstasy2/toast-notifications-ios.git
 git tuneup_js https://github.com/alexvollmer/tuneup_js.git
-git video_play_edit_sdk https://github.com/LanSoSdk/video_play_edit_sdk.git live
-git vlc git://git.videolan.org/vlc.git live
 git webrtc https://chromium.googlesource.com/external/webrtc
 git wireme https://code.google.com/p/wireme/
 log AVCaptureToAudioUnit audio

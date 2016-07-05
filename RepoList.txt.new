@@ -1,0 +1,55 @@
+fossil www.sqlite.org_cgi_src http://www.sqlite.org/cgi/src sql sqlite
+git 6983547 https://gist.github.com/6983547.git ffmepg build shell
+git AFNetworking https://github.com/AFNetworking/AFNetworking.git  ios network
+git AKSegmentedControl https://github.com/alikaragoz/AKSegmentedControl.git view
+git AMCoreAudio https://github.com/sonicbee9/AMCoreAudio.git audio
+git Alcatraz https://github.com/mneorr/Alcatraz.git xcode plug-in
+git AppleCoreAudioUtilityClasses https://github.com/thehtb/AppleCoreAudioUtilityClasses.git audio
+git AsyncDisplayKit https://github.com/facebook/AsyncDisplayKit.git view
+git AudioKit https://github.com/audiokit/AudioKit.git audio
+git BeautifyFaceDemo https://github.com/Guikunzhi/BeautifyFaceDemo.git live
+git BeeFramework https://github.com/gavinkwoe/BeeFramework.git  ios framework tencent
+git BlocksKit https://github.com/pandamonia/BlocksKit.git  objc extension
+git CAT-Audio-Box https://github.com/carltaylor43/CAT-Audio-Box.git  live audio
+git Canvas https://github.com/CanvasPod/Canvas.git h5
+git ChatSecure-iOS https://github.com/chrisballinger/ChatSecure-iOS.git chart
+git ClangFormat-Xcode https://github.com/travisjeffery/ClangFormat-Xcode.git  xcode plug-in
+git CocoaAsyncSocket https://github.com/robbiehanson/CocoaAsyncSocket.git  objc socket network
+git CocoaHTTPServer https://github.com/robbiehanson/CocoaHTTPServer httpServer
+git CoconutKit https://github.com/defagos/CoconutKit.git view
+git Colours https://github.com/bennyguitar/Colours.git ios ui
+git DBCamera https://github.com/danielebogo/DBCamera.git live
+git DateTools https://github.com/MatthewYork/DateTools.git util
+git EZAudio https://github.com/syedhali/EZAudio.git audio
+git FFmpeg-iOS-Encoder https://github.com/chrisballinger/FFmpeg-iOS-Encoder.git live
+git FLEX https://github.com/Flipboard/FLEX.git debug
+git FastCoding https://github.com/nicklockwood/FastCoding.git archive
+git FastImageCache https://github.com/path/FastImageCache.git image
+git FlameGraph https://github.com/brendangregg/FlameGraph.git dtrace
+git FlvParser https://github.com/lnmcc/FlvParser.git live
+git GBInfiniteScrollView https://github.com/gblancogarcia/GBInfiniteScrollView.git view
+git GPUImage https://github.com/BradLarson/GPUImage.git live
+git Graphics-and-Animation-on-iOS https://github.com/vandadnp/Graphics-and-Animation-on-iOS.git view
+git IQKeyboardManager https://github.com/hackiftekhar/IQKeyboardManager.git keyboard
+git InfinitePagingView https://github.com/caesarcat/InfinitePagingView.git view
+git JSONModel https://github.com/icanzilb/JSONModel.git json
+git JSPatch https://github.com/bang590/JSPatch.git hotfix
+git JSQMessagesViewController https://github.com/jessesquires/JSQMessagesViewController.git view
+git PBJVision https://github.com/piemonte/PBJVision camera
+git PLPlayerKit https://github.com/pili-engineering/PLPlayerKit.git live
+git SCU https://github.com/neolee/SCU.git ibus
+git SocketRocket https://github.com/square/SocketRocket.git websocket
+git VideoCore https://github.com/jgh-/VideoCore.git live
+git XMPPFramework https://github.com/robbiehanson/XMPPFramework.git xmpp
+git depot_tools https://chromium.googlesource.com/chromium/tools/depot_tools.git chrome
+git gyp https://chromium.googlesource.com/external/gyp make
+git ninja https://github.com/ninja-build/ninja.git swift
+git openal-soft git://repo.or.cz/openal-soft.git openal
+git pusher pusher live
+git rtmp_streamer_for_android https://github.com/Vbytes/rtmp_streamer_for_android.git live
+git rtmp_streamer_for_ios https://github.com/Vbytes/rtmp_streamer_for_ios.git live
+git srs-sea https://github.com/ossrs/srs-sea.git live
+git swift https://github.com/EdgarHz/swift.git swift
+git swift-evolution https://github.com/apple/swift-evolution.git swift
+git video_play_edit_sdk https://github.com/LanSoSdk/video_play_edit_sdk.git live
+git vlc git://git.videolan.org/vlc.git live

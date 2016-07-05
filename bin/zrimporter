@@ -1,5 +1,5 @@
 #!/bin/sh
-source zrWarehouseCommon.sh;
+source zrWarehouseCommon.sh
 
 if [ "$#" -eq 0 ]; then   # 脚本需要至少一个命令行参数.
   echo "Usage $0 -[options k,nc]"
@@ -18,19 +18,19 @@ foreachd(){
                 local gitShortName=$(gitShortName)
                 echo "----------at: $pathdir/$file find git:$gitRemote"
                 writeInfoToList "git" $gitShortName $gitRemote ""
-                mvDirIfExistDoNothing  `pwd` $RepoRootDir $gitShortName
+                mvDirIfExistMoveToBackup `pwd` $RepoRootDir $gitShortName $BackupDir
             elif [[ -d ".svn" ]]; then
                 local svnURL=$(svnUrl)
                 local svnShortName=$(svnShortName)
                 echo "----------at: $pathdir/$file find svn:$svnURL"
                 writeInfoToList "svn" $svnShortName $svnURL ""
-                mvDirIfExistDoNothing  `pwd` $RepoRootDir $svnShortName
+                mvDirIfExistMoveToBackup  `pwd` $RepoRootDir $svnShortName $BackupDir
             elif [[ $(fossilIsUnderControl) -eq  0 ]]; then
                 local url=$(fossilUrl)
                 local shortName=$(fossilShortName)
                 echo "----------at: $pathdir/$file find fossil:$url"
                 writeInfoToList "fossil" $shortName $url ""
-                mvDirIfExistDoNothing  `pwd` $RepoRootDir $shortName
+                mvDirIfExistMoveToBackup  `pwd` $RepoRootDir $shortName  $BackupDir
             elif [ "${file##*.}" != 'xcworkspace' ] && [ "${file##*.}" != 'xcodeproj' ] && [ "${file##*.}" != 'lproj' ]; then
                 # echo "foreachd $pathdir/$file"
                 foreachd  $pathdir/$file
@@ -50,6 +50,8 @@ else
     exit -1;
 fi
 
+SourceDir=`pwd`
+BackupDir="$SourceDir/backupAsExist_"
 foreachd `pwd`
 
 

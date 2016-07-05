@@ -8,10 +8,10 @@ RegisterTxtFileName="RepoList.txt"
 
 RepoRootDir="$WarehouseBaseDir/$RepoRootDirName"
 
-. "$WarehouseBaseDir/bin/zrCommon.sh"
-. "$WarehouseBaseDir/bin/zrGitHelper.sh"
-. "$WarehouseBaseDir/bin/zrSvnHelper.sh"
-. "$WarehouseBaseDir/bin/zrFossilHelper.sh"
+. "$WarehouseBaseDir/bin/zrhelper/zrCommon.sh"
+. "$WarehouseBaseDir/bin/zrhelper/zrGitHelper.sh"
+. "$WarehouseBaseDir/bin/zrhelper/zrSvnHelper.sh"
+. "$WarehouseBaseDir/bin/zrhelper/zrFossilHelper.sh"
 #创建相关目录
 function checkDir(){
 	local oldpath=`pwd`
@@ -35,6 +35,10 @@ function writeInfoToList(){
 	local Keyword=$4;
 	local LineContent="$repoType $shortName $Url $Keyword"
 	echo $LineContent | cat >> $WarehouseBaseDir/$RegisterTxtFileName
+	uniqRepoInfoList
+}
+
+function uniqRepoInfoList(){
 	sort $WarehouseBaseDir/$RegisterTxtFileName | uniq | cat > $WarehouseBaseDir/temp.txt
 	mv $WarehouseBaseDir/temp.txt $WarehouseBaseDir/$RegisterTxtFileName
 }

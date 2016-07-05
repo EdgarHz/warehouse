@@ -6,11 +6,10 @@ error(){
 
 }
 usage(){
-    echo "Usage: $PROGRAM [-k|keyword] [-n|--noclone] [-l|--log|-s|--svn|-g|--git|-m|--hg|-f|--fossil] giturl/svnurl";
+    echo "Usage: $PROGRAM [-l|--log|-s|--svn|-g|--git|-m|--hg|-f|--fossil|-t|--type] giturl/svnurl   [-n|--noclone] [-k|keyword]";
 
-    echo "-k --keyword:  add some keyword to tag it."
     echo "-n --noclone: only add it to list, not clone it to localrepo"
-
+    echo "-k --keyword:  add some keyword to tag it."
 }
 usage_and_exit(){
     usage
@@ -24,84 +23,73 @@ warning() {
     echo "$@" 1>&2
     EXITCODE=`expr $EXITCODE +1 `jfd
 }
+
+if [[ $# = 0 ]]; then
+    usage_and_exit
+fi
+
 PROGRAM=`basename $0`;
 Version=1.0.1;
 EXITCODE=0;
 
+Type="git";
+RepoURL='';
 WontCloneIt=false;
 Keyword=''
-Type="git";
 
-Options=`getopt  hnlgsmk::  $*`
-#--long help,noclone,git,svn,hg,keyword::
-if [[ $? != 0 ]]; then
-    usage_and_exit
-fi
-# echo $Options
-eval set -- $Options
-# echo $@ "??"
-
-while true; do
-    echo "\$1" $1
+while true; do 
     case $1 in
     -h|--help)
         usage_and_exit
         shift
         ;;
+    -g|--git)
+        Type="git";
+        RepoURL=$2;
+        shift 2
+        ;;
+    -s|--svn)
+        Type="svn";
+        RepoURL=$2;
+        shift 2
+        ;;
+    -m|--hg)
+        Type="hg";
+        RepoURL=$2;
+        shift 2
+        ;;
+    -f|--fossil)
+        Type="fossil";
+        RepoURL=$2;
+        shift 2
+        ;;
+    -t|--type)
+        Type=$2;
+        RepoURL=$3;
+        shift 3
+        ;;
     -n|--noclone)
         WontCloneIt=true
         shift;
         ;;
-    -l|--log)
-        Type="log";
-        WontCloneIt=true
-        shift;
-        ;;
-    -g|--git)
-        Type="git";
-        shift
-        ;;
-    -s|--svn)
-        Type="svn";
-        shift
-        ;;
-    -m|--hg)
-        Type="hg";
-        shift
-        ;;
-    -f|--fossil)
-        Type="fossil";
-        shift
-        ;;
     -k|--keyword)
-        Keyword="$Keyword $2";
-        echo $Keyword
-        shift 2
-        ;;
-    --)
-        shift
-        break;
+        shift;
+        keyword=$@
+        break
         ;;
     *)
+        echo "you must has keyword with it, please"
         usage_and_exit
-        break;
         ;;
-     esac
+    esac
 done
 
 
-if [[ $# -lt 1 ]]; then
-    usage_and_exit
-fi
-
-remoteURL=$1
-
-source zrWarehouseCommon.sh;
-
+source  zrWarehouseCommon.sh
 shortName='';
 case $Type in
     hg)
-        :
+        shortName=${RepoURL##*/}
         ;;
     svn)
         shortName=$(svnShortName $remoteURL);
@@ -114,13 +102,14 @@ case $Type in
         shortName=$(fossilShortName $remoteURL);
         ;;
      *)
-        :
+        shortName=${RepoURL##*/}
         ;;
 esac
-echo $Type $shortName $remoteURL $Keywordzr
+
+echo $Type $shortName $remoteURL $Keyword
 writeInfoToList $Type $shortName $remoteURL $Keyword
 
-if [[  $WontCloneIt -eq false ]]; then
+if [[  $WontCloneIt -eq true ]]; then
     case $Type in
      git)
         gitCloneOrUpdate $RepoRootDir $remoteURL
