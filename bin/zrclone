@@ -34,10 +34,12 @@ EXITCODE=0;
 
 Type="git";
 RepoURL='';
-WontCloneIt=false;
+WontCloneIt=false
 Keyword=''
 
+
 while true; do 
+# echo   "\$1 $1"
     case $1 in
     -h|--help)
         usage_and_exit
@@ -74,8 +76,9 @@ while true; do
         ;;
     -k|--keyword)
         shift;
-        keyword=$@
-        break
+        Keyword=$@
+        shift $#
+        break;
         ;;
     *)
         echo "you must has keyword with it, please"
@@ -84,7 +87,6 @@ while true; do
     esac
 done
 
-
 source  zrWarehouseCommon.sh
 shortName='';
 case $Type in
@@ -92,40 +94,46 @@ case $Type in
         shortName=${RepoURL##*/}
         ;;
     svn)
-        shortName=$(svnShortName $remoteURL);
+        shortName=$(svnShortName $RepoURL);
         ;;
         
     git)
-        shortName=$(gitShortName $remoteURL);
+        shortName=$(gitShortName $RepoURL);
         ;;
     hg)
-        shortName=$(fossilShortName $remoteURL);
+        shortName=$(fossilShortName $RepoURL);
         ;;
      *)
         shortName=${RepoURL##*/}
         ;;
 esac
 
-echo $Type $shortName $remoteURL $Keyword
-writeInfoToList $Type $shortName $remoteURL $Keyword
+echo "log as: $Type $shortName $RepoURL $Keyword"
+writeInfoToList $Type $shortName $RepoURL $Keyword
 
-if [[  $WontCloneIt -eq true ]]; then
+if [[  $WontCloneIt = false ]]; then
     case $Type in
      git)
-        gitCloneOrUpdate $RepoRootDir $remoteURL
+        echo "clone to repos: git"
+        gitCloneOrUpdate $RepoRootDir $RepoURL
         ;;
      hg)
-        :
+        echo "clone to repos: unsupport hg"
         ;;
      svn)
-        svnCloneOrUpdate $RepoRootDir $remoteURL
+        echo "clone to repos: svn"
+        svnCloneOrUpdate $RepoRootDir $RepoURL
         ;;
      fossil)
-        fossilCloneOrUpdate $RepoRootDir $remoteURL
+        echo "clone to repos: fossil"
+        fossilCloneOrUpdate $RepoRootDir $RepoURL
         ;;
      *)
+        echo "clone to repos: unknown type."
         ;;
-esac
+    esac
+else 
+    echo "clone to repos: no"
 fi
 
 

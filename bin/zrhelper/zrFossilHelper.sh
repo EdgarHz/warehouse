@@ -56,7 +56,7 @@ function fossilCloneOrUpdate(){
     local pwdPath=`pwd`
 }
 
-fossilShortName $1
+# fossilShortName $1
 #move fossil at $1 to $2/$3
 # function fossilMove(){
 #     local srcPath=$1

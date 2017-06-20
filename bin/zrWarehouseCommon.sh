@@ -7,11 +7,11 @@ RegisterTxtFileName="RepoList.txt"
 
 
 RepoRootDir="$WarehouseBaseDir/$RepoRootDirName"
-
 . "$WarehouseBaseDir/bin/zrhelper/zrCommon.sh"
 . "$WarehouseBaseDir/bin/zrhelper/zrGitHelper.sh"
 . "$WarehouseBaseDir/bin/zrhelper/zrSvnHelper.sh"
 . "$WarehouseBaseDir/bin/zrhelper/zrFossilHelper.sh"
+ 
 #创建相关目录
 function checkDir(){
 	local oldpath=`pwd`
